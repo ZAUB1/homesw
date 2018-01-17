@@ -20,3 +20,4 @@
 int hsw_sendcmd(int argc, char** argv, char* outstr);
 
 #endif
+

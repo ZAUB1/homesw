@@ -9,6 +9,7 @@
 #include <unistd.h>
 
 #include "client.h"
+#include "command.h"
 #include "daemon.h"
 
 void hsw_daemon()
@@ -82,15 +83,6 @@ void hsw_daemon()
         free(cmd_argv);
         free(outstr);
     }
-}
-
-void hsw_parsecmd(int argc, char** argv, char* outstr)
-{
-    for(int i = 0; i < argc; i++)
-    {
-        puts(argv[i]);
-    }
-    outstr[0] = '\0';
 }
 
 void hsw_daemonexit()
