@@ -13,15 +13,26 @@ typedef struct
 {
     char* label;
     void (*action)(int, char**, char*);
-    int argc;
+    int minargc;
+    int maxargc;
     char* format;
+    char* help;
 } command_s;
 
-#include "cmd_bind.h"
-#include "cmd_stop.h"
+/*
+ * Compare two commands
+ * Used for qsort() and bsearch() calls
+ */
+int compare_cmd(const void* _a, const void* _b);
 
-#define NCOMMANDS 2
+#include "cmd_stop.h"
+#include "cmd_show.h"
+#include "cmd_bind.h"
+
+#define NCOMMANDS 4
+
 extern command_s COMMANDS[NCOMMANDS];
+extern command_s COMMANDS_UNSORTED[NCOMMANDS];
 
 /*
  * Parse a command
