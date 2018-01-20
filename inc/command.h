@@ -9,7 +9,7 @@
  * label    Name of the command
  * action   Function associated with the label
  */
-typedef struct
+typedef struct command_s
 {
     char* label;
     void (*action)(int, char**, char*);

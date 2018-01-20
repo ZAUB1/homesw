@@ -56,6 +56,6 @@ void hsw_parsecmd(int argc, char** argv, char* outstr)
         return;
     }
 
-    exec->action(argc - 1, argv + 1, outstr);
+    exec->action(argc - 1, argv + 2, outstr);
 }
 
