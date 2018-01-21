@@ -15,7 +15,7 @@ command_s COMMANDS_UNSORTED[NCOMMANDS] =
     { "stop", hsw_cmd_stop, 0, 0, "",
       "Stop homesw daemon" },
 
-    { "show", hsw_cmd_show, 0, 1, "[all|<id>]",
+    { "show", hsw_cmd_show, 0, 2, "[mode] [id]",
       "Show all the binds" },
 
     { "bind", hsw_cmd_bind, 3, 3, "<mode> <name> <mqtt topic>",
@@ -56,6 +56,6 @@ void hsw_parsecmd(int argc, char** argv, char* outstr)
         return;
     }
 
-    exec->action(argc - 1, argv + 2, outstr);
+    exec->action(argc - 2, argv + 2, outstr);
 }
 

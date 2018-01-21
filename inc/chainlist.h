@@ -5,5 +5,7 @@
 
 void* chainlist_add(void** chainlist, size_t elem_size);
 
+void* chainlist_get(void* chainlist, int index);
+
 #endif
 
