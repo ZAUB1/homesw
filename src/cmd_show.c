@@ -25,7 +25,7 @@ void hsw_cmd_show(int argc, char** argv, char* outstr_)
                 outstr += max(0, sprintf(outstr, "\n"));
             }
 
-            outstr += max(0, sprintf(outstr, "No %s bind", BMODE_STR[imode]));
+            outstr += max(0, sprintf(outstr, "No %s bind", BMODE[imode].str));
         }
         else
         {
@@ -40,7 +40,7 @@ void hsw_cmd_show(int argc, char** argv, char* outstr_)
                 }
 
                 outstr += max(0, sprintf(outstr, "%-3d ", currid));
-                outstr = bind_print(outstr, currbind);
+                outstr = currbind->mode->print_bind(outstr, currbind);
                 currbind = currbind->next;
                 currid++;
             }

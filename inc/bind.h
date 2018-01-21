@@ -1,20 +1,20 @@
 #ifndef HSW_BIND_H
 #define HSW_BIND_H
 
+typedef struct bind_s bind_s;
+
 #include "bindmode.h"
 #include "command.h"
 
-typedef struct bind_s
+struct bind_s
 {
-    struct bind_s* next;
-    int mode;
+    bind_s* next;
+    bmode_s* mode;
     char device[MAX_CMD_ARGVLEN];
     char topic[MAX_CMD_ARGVLEN];
-} bind_s;
+};
 
 extern bind_s* BINDS[NBMODES];
-
-char* bind_print(char* outstr, bind_s* bind);
 
 #endif
 
